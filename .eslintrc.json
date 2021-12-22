@@ -1,0 +1,103 @@
+{
+
+  "root": true,
+    "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "prettier",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:json/recommended",
+        "plugin:prettier/recommended"
+
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "arrowFunctions": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "import",
+        "prettier",
+        "@typescript-eslint"
+    ],
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        "project": "./tsconfig.json"
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["./src"]
+      }
+    }
+  },
+  "rules": {
+    "import/no-unresolved": "error",
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/default": 2,
+    "import/export": 2,
+    "json/*": ["error", "allowComments"],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "comma-dangle": "off", // https://eslint.org/docs/rules/comma-dangle
+    "function-paren-newline": "off", // https://eslint.org/docs/rules/function-paren-newline
+    "global-require": "off", // https://eslint.org/docs/rules/global-require
+    "import/no-dynamic-require": "off", // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-dynamic-require.md
+    "no-inner-declarations": "off", // https://eslint.org/docs/rules/no-inner-declarations
+    "import/no-cycle": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": [1, { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state", "registration"] }],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+    
+  },
+  "globals": {
+    "window": true,
+    "FormData": true,
+    "Blob": true,
+    "document": true
+  }
+
+}
